@@ -16,8 +16,10 @@
             $dest = "./uploads/";
             $dest_file = $dest.basename($_FILES['uploaded']['name']);
             if (is_uploaded_file($_FILES['uploaded']['tmp_name'])) {
-                echo "The file".basename($_FILES['uploaded']['name'])." has been uploaded";
-            } else {
+                echo "The file name is :".basename($_FILES['uploaded']['name'])." has been uploaded";
+            } elseif (empty($dest_file)) {
+                echo "No file has been uploaded yet";
+            }else {
                 echo "Error, please try again!";
             }
         ?>
